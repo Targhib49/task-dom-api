@@ -120,5 +120,8 @@ Another film :
 99. Star wars: episode IX - the rise of skywalker
 100. Rogue one: a star wars story
 
+Object structure: 
 
+Users {id, createdAt, name, email, password, avatar}
+Users/Movies {id, userId, idIMDb, title, rating, review} 
 
