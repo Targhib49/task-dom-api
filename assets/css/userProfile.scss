@@ -1,0 +1,66 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #eee;
+}
+
+header {
+	background: linear-gradient(to right, rgb(97, 236, 139), rgb(97, 236, 183)) no-repeat 0 0 / cover;
+	background-color: rgb(97, 236, 183);
+	box-shadow: 0 5px 28px rgba(0, 0, 0, 0.25);
+	border-bottom: 1px solid rgb(98, 231, 138);
+
+	#my-logo {
+		img {
+			width: 50px;
+			height: 50px;
+		}
+	}
+
+	#my-title {
+		img {
+			width: 50%;
+		}
+	}
+}
+
+main {
+	.myRow {
+		height: 87vh;
+	}
+
+	.profile-data {
+		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.158);
+
+		.profile-title {
+			font-size: 24px;
+			background-color: rgb(97, 236, 183);
+		}
+	}
+
+	.profile-review {
+		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.158);
+
+		.profile-title {
+			font-size: 24px;
+			background-color: rgb(97, 236, 183);
+		}
+
+		.review-title,
+		.user-review {
+			border-bottom: 1px solid rgba(184, 175, 175, 0.562);
+		}
+	}
+}
+
+footer {
+	height: 35px;
+	background-color: rgb(84, 247, 84);
+	.row {
+		height: 100%;
+	}
+}

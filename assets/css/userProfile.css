@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #eee;
+}
+
+header {
+  background: -webkit-gradient(linear, left top, right top, from(#61ec8b), to(#61ecb7)) no-repeat 0 0/cover;
+  background: linear-gradient(to right, #61ec8b, #61ecb7) no-repeat 0 0/cover;
+  background-color: #61ecb7;
+  -webkit-box-shadow: 0 5px 28px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 5px 28px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid #62e78a;
+}
+
+header #my-logo img {
+  width: 50px;
+  height: 50px;
+}
+
+header #my-title img {
+  width: 50%;
+}
+
+main .myRow {
+  height: 87vh;
+}
+
+main .profile-data {
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.158);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.158);
+}
+
+main .profile-data .profile-title {
+  font-size: 24px;
+  background-color: #61ecb7;
+}
+
+main .profile-review {
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.158);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.158);
+}
+
+main .profile-review .profile-title {
+  font-size: 24px;
+  background-color: #61ecb7;
+}
+
+main .profile-review .review-title,
+main .profile-review .user-review {
+  border-bottom: 1px solid rgba(184, 175, 175, 0.562);
+}
+
+footer {
+  height: 35px;
+  background-color: #54f754;
+}
+
+footer .row {
+  height: 100%;
+}
+/*# sourceMappingURL=userProfile.css.map */
