@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #eee;
+}
+
+header {
+  background: -webkit-gradient(linear, left top, right top, from(#61ec8b), to(#61ecb7)) no-repeat 0 0/cover;
+  background: linear-gradient(to right, #61ec8b, #61ecb7) no-repeat 0 0/cover;
+  background-color: #61ecb7;
+  -webkit-box-shadow: 0 5px 28px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 5px 28px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid #62e78a;
+}
+
+header #my-logo img {
+  width: 50px;
+  height: 50px;
+}
+
+header #my-title img {
+  width: 50%;
+}
+
+main .myRow {
+  height: 87vh;
+}
+
+main #main-container {
+  background-color: white;
+  -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.24);
+}
+
+main #main-container input {
+  background-color: #faf8f8;
+}
+
+main #main-container .card-body {
+  padding: 1.25rem, 1.25rem, 0, 1.25rem !important;
+}
+
+main #main-container img {
+  width: 90px !important;
+  height: 120px !important;
+}
+
+main #main-container p {
+  font-size: 12px;
+}
+
+footer {
+  height: 35px;
+  background-color: #54f754;
+}
+
+footer .row {
+  height: 100%;
+}
+/*# sourceMappingURL=index.css.map */

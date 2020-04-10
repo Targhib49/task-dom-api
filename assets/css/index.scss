@@ -1,0 +1,65 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #eee;
+}
+
+header {
+	background: linear-gradient(to right, rgb(97, 236, 139), rgb(97, 236, 183)) no-repeat 0 0 / cover;
+	background-color: rgb(97, 236, 183);
+	box-shadow: 0 5px 28px rgba(0, 0, 0, 0.25);
+	border-bottom: 1px solid rgb(98, 231, 138);
+
+	#my-logo {
+		img {
+			width: 50px;
+			height: 50px;
+		}
+	}
+
+	#my-title {
+		img {
+			width: 50%;
+		}
+	}
+}
+
+main {
+	.myRow {
+		height: 87vh;
+	}
+
+	#main-container {
+		background-color: rgb(255, 255, 255);
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.24);
+
+		input {
+			background-color: rgb(250, 248, 248);
+		}
+
+		.card-body {
+			padding: 1.25rem, 1.25rem, 0, 1.25rem !important;
+		}
+
+		img {
+			width: 90px !important;
+			height: 120px !important;
+		}
+
+		p {
+			font-size: 12px;
+		}
+	}
+}
+
+footer {
+	height: 35px;
+	background-color: rgb(84, 247, 84);
+	.row {
+		height: 100%;
+	}
+}

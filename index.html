@@ -4,59 +4,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <title>RYMIB | Home</title>
-    <link rel="stylesheet" href="assets/css/test.css">
 </head>
 
 <body>
-    <h2>Weekly Coding Challenge #1: Sign in/up Form</h2>
-    <div class="container" id="container">
-        <div class="form-container sign-up-container">
-            <form action="#">
-                <h1>Create Account</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
-            </form>
+    <!-- Header -->
+    <header class="container-fluid">
+        <div class="row">
+            <div id="my-logo" class="col-2 text-right">
+                <a href="index.html">
+                    <img class="img-fluid" src="./assets/images/myLogo.png" alt="Home">
+                </a>
+            </div>
+            <div id="my-title" class="col-10">
+                <img class="img-fluid pt-2"
+                    src="https://fontmeme.com/permalink/200410/95c10357ca9b2c13cd8c4051593ff189.png"
+                    alt="graffiti-fonts">
+            </div>
         </div>
-        <div class="form-container sign-in-container">
-            <form action="#">
-                <h1>Sign in</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+    </header>
+
+    <!-- Main content -->
+    <main class="container-fluid">
+        <div class="row justify-content-between py-2 myRow">
+            <div id="main-container" class="col-9 ml-3">
+                <div class="row justify-content-center pt-3">
+                    <div class="col-8">
+                        <input class="form-control" placeholder="Search by title" type="text">
+                    </div>
                 </div>
-                <span>or use your account</span>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
-            </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
+                <div id="first-row-screen" class="row justify-content-around pt-3">
+                    <div class="col-2 card">
+                        <div class="card-body">
+                            <img src="./assets/images/example.jpg" alt="poster">
+                            <p class="card-text text-center pt-1">Name of the movie</p>
+                        </div>
+                    </div>
+                    <div class="col-2 card">
+                        <div class="card-body">
+                            <img src="./assets/images/no-image-available-png-3.png" class="card-img-top" alt="poster">
+                            <p class="card-text text-center pt-1">Name of the movie</p>
+                        </div>
+                    </div>
+                    <div class="col-2 card">
+                        <div class="card-body">
+                            <img src="./assets/images/no-image-available-png-3.png" class="card-img-top" alt="poster">
+                            <p class="card-text text-center pt-1">Name of the movie</p>
+                        </div>
+                    </div>
+                    <div class="col-2 card">
+                        <div class="card-body">
+                            <img src="./assets/images/no-image-available-png-3.png" class="card-img-top" alt="poster">
+                            <p class="card-text text-center pt-1">Name of the movie</p>
+                        </div>
+                    </div>
+                    <div class="col-2 card">
+                        <div class="card-body">
+                            <img src="./assets/images/no-image-available-png-3.png" class="card-img-top" alt="poster">
+                            <p class="card-text text-center pt-1">Name of the movie</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
+                <div id="second-row-screen" class="row justify-content-around py-2">
+                    <div class="col-2 card">
+                        <div class="card-body">
+                            <img src="./assets/images/no-image-available-png-3.png" class="card-img-top" alt="poster">
+                            <p class="card-text text-center pt-1">Name of the movie</p>
+                        </div>
+                    </div>
+                    <div class="col-2 card">
+                        <div class="card-body">
+                            <img src="./assets/images/no-image-available-png-3.png" class="card-img-top" alt="poster">
+                            <p class="card-text text-center pt-1">Name of the movie</p>
+                        </div>
+                    </div>
+                    <div class="col-2 card">
+                        <div class="card-body">
+                            <img src="./assets/images/no-image-available-png-3.png" class="card-img-top" alt="poster">
+                            <p class="card-text text-center pt-1">Name of the movie</p>
+                        </div>
+                    </div>
+                    <div class="col-2 card">
+                        <div class="card-body">
+                            <img src="./assets/images/no-image-available-png-3.png" class="card-img-top" alt="poster">
+                            <p class="card-text text-center pt-1">Name of the movie</p>
+                        </div>
+                    </div>
+                    <div class="col-2 card">
+                        <div class="card-body">
+                            <img src="./assets/images/no-image-available-png-3.png" class="card-img-top" alt="poster">
+                            <p class="card-text text-center pt-1">Name of the movie</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-end pt-3 pr-3">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination pagination-sm">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div id="profile-box" class="col-2 mt-3 mr-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="./assets/images/pngwave.png"
+                            class="img-fluid rounded-circle w-75 mb-4 border border-dark" alt="Profile photo">
+                        <h5 class="card-title mb-5">User name</h5>
+                        <a href="#">View Profile</a><br>
+                        <a href="#">Sign out</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
+    <!-- Footer -->
+    <footer class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col text-center">Copyright &copy; by Impactbyte #13 Master Mizuchi</div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- <script src="assets/js/index.js"></script> -->
 </body>
 
 </html>
