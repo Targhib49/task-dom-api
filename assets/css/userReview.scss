@@ -1,0 +1,103 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #eee;
+}
+
+header {
+	background: linear-gradient(to right, rgb(97, 236, 139), rgb(97, 236, 183)) no-repeat 0 0 / cover;
+	background-color: rgb(97, 236, 183);
+	box-shadow: 0 5px 28px rgba(0, 0, 0, 0.25);
+	border-bottom: 1px solid rgb(98, 231, 138);
+
+	#my-logo {
+		img {
+			width: 50px;
+			height: 50px;
+		}
+	}
+
+	#my-title {
+		img {
+			width: 50%;
+		}
+	}
+}
+
+main {
+	.myRow {
+		height: 87vh;
+	}
+
+	#main-container {
+		background-color: rgb(255, 255, 255);
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.24);
+
+		.card {
+			border: none;
+		}
+
+		#moviesInfo {
+			border: 1px dashed rgba(0, 0, 0, 0.192);
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.075);
+		}
+
+		.rate {
+			float: left;
+			height: 46px;
+			padding: 0 10px;
+		}
+
+		textarea {
+			resize: none;
+		}
+	}
+}
+
+.rate:not(:checked) > input {
+	position: absolute;
+	top: -9999px;
+}
+
+.rate:not(:checked) > label {
+	float: right;
+	width: 1em;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: pointer;
+	font-size: 30px;
+	color: #ccc;
+}
+
+.rate:not(:checked) > label:before {
+	content: '★ ';
+}
+
+.rate > input:checked ~ label {
+	color: #ffc700;
+}
+
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+	color: #deb217;
+}
+
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+	color: #c59b08;
+}
+
+footer {
+	height: 35px;
+	background-color: rgb(84, 247, 84);
+	.row {
+		height: 100%;
+	}
+}
