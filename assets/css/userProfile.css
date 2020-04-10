@@ -9,6 +9,15 @@ body {
   background-color: #eee;
 }
 
+body a {
+  color: black;
+}
+
+a:hover {
+  color: blue;
+  text-decoration: none;
+}
+
 header {
   background: -webkit-gradient(linear, left top, right top, from(#61ec8b), to(#61ecb7)) no-repeat 0 0/cover;
   background: linear-gradient(to right, #61ec8b, #61ecb7) no-repeat 0 0/cover;
