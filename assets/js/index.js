@@ -9,21 +9,65 @@ if (check != 'true') {
 
 // Global variable and constant
 let moviesList = [
-	'Black panther',
-	'Doctor strange',
-	'Aladdin',
-	'Big Hero 6',
-	'The maze runner',
-	'Ready player one',
-	'the lorax',
-	'joker',
-	'up',
-	'A star is born',
+	'Iron man',
+	'The incredible hulk',
+	'Iron man 2',
+	'Thor',
+	'Captain america: The first Avenger',
+	'The Avengers',
+	'Wall-e',
 	'Sonic the hedgehog',
-	'Sing',
-	'Coco',
-	'Hercules',
-	'The greatest showman'
+	'Dolittle',
+	'Up',
+	'Ratatouille',
+	'Despicable me',
+
+	'The incredibles',
+	'Tron: legacy',
+	'Terminator: dark fate',
+	'Terminator Genisys',
+	'Terminator salvation',
+	'Terminator 3: Rise of the machines',
+	'Terminator 2: Judgment day',
+	'The terminator',
+	'The maze runner',
+	'Maze runner: the scorch trials',
+	'Maze runner: the death cure',
+	'How to train your dragon',
+
+	'How to train your dragon 2'
+	// 'How to train your dragon: the hidden world',
+	// 'Interstellar',
+	// 'A star is born',
+	// 'The greatest showman',
+	// 'Ready player one',
+	// 'Bad boy',
+	// 'Avatar',
+	// 'Aquaman',
+	// 'Joker',
+	// 'Gladiator',
+	// '300',
+
+	// 'Captain america: civil war',
+	// 'Doctor strange',
+	// 'Guardians of the galaxy vol. 2',
+	// 'Spider-man: homecoming',
+	// 'Thor: Ragnarok',
+	// 'Black panther',
+	// 'Avengers: infinity war',
+	// 'Ant-man and the wasp',
+	// 'Captain marvel',
+	// 'Avengers: endgame',
+	// 'Spider-man: far from home',
+	// 'Finding nemo',
+
+	// 'Finding dory',
+	// 'Coco',
+	// 'Brave',
+	// 'Moana',
+	// 'Tangled',
+	// 'Aladdin',
+	// 'Beauty and the beast'
 ];
 let omdbData = [];
 let currentPage = 1;
@@ -33,6 +77,7 @@ const signOut = document.getElementById('sign-out');
 let moviesScreen = document.getElementById('movies-screen');
 let secondRowScreen = document.getElementById('second-row-screen');
 let paging = document.getElementById('paging');
+let searchForm = document.getElementById('search-form');
 
 // Get data from local storage
 let currentUser = JSON.parse(localStorage.userLogin);
@@ -47,9 +92,13 @@ const displayMovies = (items, wrapper, rows_per_page, page) => {
 	let paginatedItems = items.slice(start, end);
 
 	for (let i = 0; i < paginatedItems.length; i++) {
-		wrapper.innerHTML += `<div class="col-2 card"><div class="card-body"><a href="moviesInfo.html">
-        <img src="${paginatedItems[i].poster}" alt="poster">
-        <p class="card-text text-center pt-1">${paginatedItems[i].title}</p></a></div></div>`;
+		if (paginatedItems[i].poster == 'N/A') {
+			paginatedItems[i].poster = './assets/images/no-image-available-png-3.png';
+		}
+		wrapper.innerHTML += `<div class="col-2 card text-center py-2"><a id="${paginatedItems[i]
+			.imdbId}" class="myMovies" href="moviesInfo.html">
+                              <img class="img-fluid" src="${paginatedItems[i].poster}" alt="poster">
+                              <p class="card-text text-center pt-1">${paginatedItems[i].title}</p></a></div>`;
 	}
 };
 
@@ -78,7 +127,8 @@ const paginating = (event) => {
 // Connect to omdb API
 const getomdbData = async () => {
 	for (let i = 0; i < moviesList.length; i++) {
-		const response = await fetch(`http://www.omdbapi.com/?apikey=7c646784&t=${moviesList[i]}`);
+		let moviesTitle = encodeURI(moviesList[i]);
+		const response = await fetch(`http://www.omdbapi.com/?apikey=7c646784&t=${moviesTitle}`);
 		const result = await response.json();
 		let tempObj = {
 			title: result.Title,
@@ -86,7 +136,8 @@ const getomdbData = async () => {
 			plot: result.Plot,
 			runtime: result.Runtime,
 			genre: result.Genre,
-			ratings: result.Ratings
+			ratings: result.Ratings,
+			imdbId: result.imdbID
 		};
 		omdbData.push(tempObj);
 	}
@@ -116,6 +167,22 @@ const displayProfile = () => {
 };
 
 // Search Movies
+const searchMovies = () => {
+	const inputSearch = searchForm.value.toLowerCase();
+
+	const filterMovies = omdbData.filter((element) => {
+		if (element.title.toLowerCase().includes(inputSearch)) {
+			return element;
+		}
+	});
+
+	if (filterMovies.length != 0) {
+		displayMovies(filterMovies, moviesScreen, 12, 1);
+	} else {
+		paging.innerHTML = '';
+		moviesScreen.innerHTML = `<div class="col p-3"><span class="h4">No movies matched with your key</span></div>`;
+	}
+};
 
 // Logout
 const logout = (event) => {
@@ -132,3 +199,4 @@ displayProfile();
 // Listeners
 signOut.addEventListener('click', logout);
 paging.addEventListener('click', paginating);
+searchForm.addEventListener('keyup', searchMovies);
