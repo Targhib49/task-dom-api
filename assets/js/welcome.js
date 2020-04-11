@@ -43,10 +43,12 @@ const login = (event) => {
 		for (let i = 0; i < userData.length; i++) {
 			if (userData[i].email == email && userData[i].password == password) {
 				let name = userData[i].name;
+				let avatar = userData[i].avatar;
 				let userLogin = {
 					name,
 					email,
-					password
+					password,
+					avatar
 				};
 
 				localStorage.setItem('isLoginRYMIB', true);
