@@ -56,7 +56,7 @@ const displayFavoriteMovies = () => {
 		let display;
 		for (let i = 0; i < 3; i++) {
 			let id = Math.floor(Math.random() * markedMovie.length);
-			display = `<div id="movie-${i}" class="col-3 card"><img src="${markedMovie[id]
+			display += `<div id="movie-${i}" class="col-3 card"><img src="${markedMovie[id]
 				.poster}" class="img-fluid" alt="poster">
             <p class="card-text text-center pt-1">${markedMovie[id].title}</p></div>`;
 		}
@@ -88,7 +88,7 @@ const displayMoviesReview = () => {
 		let display = '';
 		for (let i = 0; i < 2; i++) {
 			let id = Math.floor(Math.random() * movieReview.length);
-			display = `<div id="row-${i}" class="row pt-2 user-review pb-1"><div class="col-4"><span class="h6">${movieReview[
+			display += `<div id="row-${i}" class="row pt-2 user-review pb-1"><div class="col-4"><span class="h6">${movieReview[
 				id
 			].title}</span></div><div class="col-8"><span class="h6">${movieReview[id].review}</span></div>`;
 		}

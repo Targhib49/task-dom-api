@@ -71,7 +71,7 @@ Another film :
 56. The greatest showman
 57. Ready player one
 58. Bad boy
-59. Bad boy for lifes
+59. Bad boy for lifes // poster N/A
 60. Avatar
 61. Aquaman
 62. Joker
@@ -127,18 +127,18 @@ Users/Movies {id, userId, idIMDb, title, marked, rating, review}
 
 function list:
 
-get API function
-post API function
+V get API function
+V post API function
 delete API function
-put API function
+V put API function
 
-get local storage function
-set local storage function
+V get local storage function
+V set local storage function
 
-sign up function
-sign in function
+V   sign up function
+V   sign in function
 
-display profile box function
+V   display profile box function
 
 display movie function
 search movie function
@@ -152,7 +152,7 @@ display rating function
 average rating function
 display review function
 
-display profile function
-display favorite movies function
-edit profile function
-display profile review function
+V   display profile function
+V   display favorite movies function
+V   edit profile function
+V   display profile review function
