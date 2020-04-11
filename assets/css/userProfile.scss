@@ -37,9 +37,9 @@ header {
 }
 
 main {
-	.myRow {
-		height: 87vh;
-	}
+	// .myRow {
+	// 	height: 87vh;
+	// }
 
 	.profile-data {
 		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.158);
@@ -47,6 +47,20 @@ main {
 		.profile-title {
 			font-size: 24px;
 			background-color: rgb(97, 236, 183);
+		}
+
+		.card {
+			background: transparent;
+			border: none;
+		}
+
+		img {
+			width: 90px !important;
+			height: 120px !important;
+		}
+
+		p {
+			font-size: 12px;
 		}
 	}
 
@@ -62,13 +76,20 @@ main {
 		.user-review {
 			border-bottom: 1px solid rgba(184, 175, 175, 0.562);
 		}
+
+		p {
+			font-size: 12px;
+		}
 	}
 }
 
 footer {
 	height: 35px;
-	background-color: rgb(84, 247, 84);
 	.row {
 		height: 100%;
 	}
+}
+
+.modal-footer {
+	border-top: none;
 }

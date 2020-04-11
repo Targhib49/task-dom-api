@@ -15,6 +15,7 @@ signInButton.addEventListener('click', () => {
 
 // Global variable and constant
 let userData = [];
+let movieData = [];
 const urlUser = 'https://5e8ee187fe7f2a00165eead7.mockapi.io/users';
 
 // Element
@@ -31,24 +32,41 @@ const getUserData = async () => {
 	});
 };
 
+// Connect to mockAPI - movie
+const getMovieData = async (id) => {
+	let urlMovie = `https://5e8ee187fe7f2a00165eead7.mockapi.io/users/${id}/movies`;
+
+	const response = await fetch(urlMovie);
+	const result = await response.json();
+
+	result.forEach((movie) => {
+		movieData.push(movie);
+	});
+};
+
 // Sign in
 const login = (event) => {
 	event.preventDefault();
 	let loginSuccess = false;
 
-	const email = document.getElementById('logEmail').value;
+	const email = document.getElementById('logEmail').value.toLowerCase();
 	const password = document.getElementById('logPassword').value;
 
 	if (userData.length != 0) {
 		for (let i = 0; i < userData.length; i++) {
-			if (userData[i].email == email && userData[i].password == password) {
+			if (userData[i].email.toLowerCase() == email && userData[i].password == password) {
+				let id = userData[i].id;
 				let name = userData[i].name;
 				let avatar = userData[i].avatar;
+				getMovieData(id);
+
 				let userLogin = {
+					id,
 					name,
 					email,
 					password,
-					avatar
+					avatar,
+					movieData
 				};
 
 				localStorage.setItem('isLoginRYMIB', true);
