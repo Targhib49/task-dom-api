@@ -21,7 +21,7 @@ E. Workplan
 ---
 A. Description
 -
-rymib20.netlify.com (Rate your Movie by Impactbyte 2020) is a website to rate your favorite movies. Mark your favorite movies and give them a review. You can also see what the other user think about your favorite movies. We will start by only 100 hand-picked best movies, but fret not as we will continue to upgrade our list in the future
+rymib20.netlify.com (Rate your Movie by Impactbyte 2020) is a website to rate your favorite movies. Mark your favorite movies and give them a review. You can also see what the other user think about your favorite movies. We will start by only 100 hand-picked best movies, but fret not as we will continue to upgrade our list in the future. (Update 4/11/2020: because of the key's limit from our API sources, we'll limit our movies selection to 40 movies. We hope your support for your best movie review system in the future) 
 
 B. Features
 -
