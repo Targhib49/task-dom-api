@@ -36,10 +36,6 @@ header #my-title img {
   width: 50%;
 }
 
-main .myRow {
-  height: 87vh;
-}
-
 main #main-container {
   background-color: white;
   -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.24);
@@ -56,9 +52,26 @@ main #main-container #moviesInfo {
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.075);
 }
 
+main #main-container #moviesInfo #movie-title {
+  font-family: 'Russo One', sans-serif;
+  font-size: 40px;
+}
+
+main #main-container #moviesInfo #movie-runtime {
+  font-size: 12px;
+}
+
+main #main-container #moviesInfo #movie-genre {
+  font-size: 12px;
+}
+
+main #main-container #moviesInfo #movie-plot {
+  font-size: 18px;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
 footer {
   height: 35px;
-  background-color: #54f754;
 }
 
 footer .row {

@@ -95,10 +95,12 @@ const displayMovies = (items, wrapper, rows_per_page, page) => {
 		if (paginatedItems[i].poster == 'N/A') {
 			paginatedItems[i].poster = './assets/images/no-image-available-png-3.png';
 		}
-		wrapper.innerHTML += `<div class="col-2 card text-center py-2"><a id="${paginatedItems[i]
-			.imdbId}" class="myMovies" href="moviesInfo.html">
-                              <img class="img-fluid" src="${paginatedItems[i].poster}" alt="poster">
-                              <p class="card-text text-center pt-1">${paginatedItems[i].title}</p></a></div>`;
+		wrapper.innerHTML += `<div class="col-2 card text-center py-2"><a  href="">
+                              <img id="${paginatedItems[i].imdbId}" class="img-fluid myMovies" src="${paginatedItems[i]
+			.poster}" alt="poster">
+                              <p id="text-${paginatedItems[i]
+									.imdbId}" class="card-text text-center pt-1 myMoviesText">${paginatedItems[i]
+			.title}</p></a></div>`;
 	}
 };
 
@@ -126,10 +128,12 @@ const paginating = (event) => {
 
 // Connect to omdb API
 const getomdbData = async () => {
-	let check = localStorage.getItem('omdbData');
+	let check = localStorage.getItem('data');
 
 	if (check != null) {
+		omdbData = JSON.parse(localStorage.data);
 		displayMovies(omdbData, moviesScreen, 12, 1);
+		paginatingSetup();
 	} else {
 		let pageNumber = Math.ceil(moviesList.length / 12);
 
@@ -166,8 +170,33 @@ const getomdbData = async () => {
 			displayMovies(tempArr, moviesScreen, 12, j + 1);
 			paginatingSetup();
 		}
-		localStorage.setItem('omdbData', JSON.stringify(omdbData));
+		localStorage.setItem('data', JSON.stringify(omdbData));
 	}
+};
+
+// Make current movie selection
+const currentMovie = (event) => {
+	event.preventDefault();
+	let id;
+	if (event.target.matches('.myMovies')) {
+		id = event.target.id;
+	} else if (event.target.matches('.myMoviesText')) {
+		id = event.target.id.replace('text-', '');
+	}
+	let selectMovie = {};
+	for (let i = 0; i < omdbData.length; i++) {
+		if (omdbData[i].imdbId == id) {
+			selectMovie.id = id;
+			selectMovie.title = omdbData[i].title;
+			selectMovie.poster = omdbData[i].poster;
+			selectMovie.runtime = omdbData[i].runtime;
+			selectMovie.genre = omdbData[i].genre;
+			selectMovie.plot = omdbData[i].plot;
+			selectMovie.ratings = omdbData[i].ratings;
+		}
+	}
+	localStorage.setItem('selectMovie', JSON.stringify(selectMovie));
+	window.location.href = `${window.origin}/moviesInfo.html`;
 };
 
 // Display profile box
@@ -224,3 +253,4 @@ displayProfile();
 signOut.addEventListener('click', logout);
 paging.addEventListener('click', paginating);
 searchForm.addEventListener('keyup', searchMovies);
+moviesScreen.addEventListener('click', currentMovie);

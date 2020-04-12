@@ -37,10 +37,6 @@ header {
 }
 
 main {
-	.myRow {
-		height: 87vh;
-	}
-
 	#main-container {
 		background-color: rgb(255, 255, 255);
 		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.24);
@@ -52,13 +48,30 @@ main {
 		#moviesInfo {
 			border: 1px dashed rgba(0, 0, 0, 0.192);
 			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.075);
+
+			#movie-title {
+				font-family: 'Russo One', sans-serif;
+				font-size: 40px;
+			}
+
+			#movie-runtime {
+				font-size: 12px;
+			}
+
+			#movie-genre {
+				font-size: 12px;
+			}
+
+			#movie-plot {
+				font-size: 18px;
+				font-family: 'PT Sans Narrow', sans-serif;
+			}
 		}
 	}
 }
 
 footer {
 	height: 35px;
-	background-color: rgb(84, 247, 84);
 	.row {
 		height: 100%;
 	}
