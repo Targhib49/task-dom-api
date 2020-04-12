@@ -46,7 +46,7 @@ let moviesList = [
 	// 'Aquaman',
 	// 'Joker',
 	// 'Gladiator',
-	// '300',
+	// '300'
 
 	// 'Captain america: civil war',
 	// 'Doctor strange',
@@ -126,24 +126,48 @@ const paginating = (event) => {
 
 // Connect to omdb API
 const getomdbData = async () => {
-	for (let i = 0; i < moviesList.length; i++) {
-		let moviesTitle = encodeURI(moviesList[i]);
-		const response = await fetch(`http://www.omdbapi.com/?apikey=7c646784&t=${moviesTitle}`);
-		const result = await response.json();
-		let tempObj = {
-			title: result.Title,
-			poster: result.Poster,
-			plot: result.Plot,
-			runtime: result.Runtime,
-			genre: result.Genre,
-			ratings: result.Ratings,
-			imdbId: result.imdbID
-		};
-		omdbData.push(tempObj);
-	}
+	let check = localStorage.getItem('omdbData');
 
-	displayMovies(omdbData, moviesScreen, 12, 1);
-	paginatingSetup();
+	if (check != null) {
+		displayMovies(omdbData, moviesScreen, 12, 1);
+	} else {
+		let pageNumber = Math.ceil(moviesList.length / 12);
+
+		for (let j = 0; j < pageNumber; j++) {
+			console.log(j);
+
+			let tempArr = [];
+			let start = 12 * j;
+			let end = start + 12;
+			console.log(start);
+
+			for (let i = start; i < end; i++) {
+				console.log('in');
+
+				if (typeof moviesList[i] != 'undefined') {
+					console.log('in2');
+
+					let moviesTitle = encodeURI(moviesList[i]);
+					const response = await fetch(`http://www.omdbapi.com/?apikey=7c646784&t=${moviesTitle}`);
+					const result = await response.json();
+					let tempObj = {
+						title: result.Title,
+						poster: result.Poster,
+						plot: result.Plot,
+						runtime: result.Runtime,
+						genre: result.Genre,
+						ratings: result.Ratings,
+						imdbId: result.imdbID
+					};
+					tempArr.push(tempObj);
+					omdbData.push(tempObj);
+				}
+			}
+			displayMovies(tempArr, moviesScreen, 12, j + 1);
+			paginatingSetup();
+		}
+		localStorage.setItem('omdbData', JSON.stringify(omdbData));
+	}
 };
 
 // Display profile box
