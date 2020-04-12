@@ -146,3 +146,11 @@ displayPrev();
 // Listeners
 buttonGroup.addEventListener('click', edit);
 signOut.addEventListener('click', logout);
+
+const notReady = document.getElementById('not-ready');
+
+const alertNot = (event) => {
+	alert('Page not ready yet');
+};
+
+notReady.addEventListener('click', alertNot);

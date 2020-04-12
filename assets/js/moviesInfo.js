@@ -95,3 +95,11 @@ signOut.addEventListener('click', logout);
 // 4. Update local storage with new data from number 2
 // 5. Display movie info and profile box, don't forget logout!!
 // 6. Function mark as favorite
+
+const notReady = document.getElementById('not-ready');
+
+const alertNot = (event) => {
+	alert('Page not ready yet');
+};
+
+notReady.addEventListener('click', alertNot);
