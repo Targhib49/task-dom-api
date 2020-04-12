@@ -46,6 +46,17 @@ main #main-container .card {
   border: none;
 }
 
+main #main-container .card-body {
+  padding: 0 !important;
+}
+
+main #main-container #marked-favorite {
+  font-size: 60px;
+  color: pink;
+  margin: 0;
+  padding: 0;
+}
+
 main #main-container #moviesInfo {
   border: 1px dashed rgba(0, 0, 0, 0.192);
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.075);

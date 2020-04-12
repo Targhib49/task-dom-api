@@ -37,10 +37,6 @@ header #my-title img {
   width: 50%;
 }
 
-main .myRow {
-  height: 87vh;
-}
-
 main #main-container {
   background-color: white;
   -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.24);
@@ -49,6 +45,17 @@ main #main-container {
 
 main #main-container .card {
   border: none;
+}
+
+main #main-container .card-body {
+  padding: 0 !important;
+}
+
+main #main-container #marked-favorite {
+  font-size: 60px;
+  color: pink;
+  margin: 0;
+  padding: 0;
 }
 
 main #main-container #moviesInfo {
@@ -105,7 +112,6 @@ main #main-container textarea {
 
 footer {
   height: 35px;
-  background-color: #54f754;
 }
 
 footer .row {

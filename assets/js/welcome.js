@@ -129,3 +129,8 @@ getUserData();
 // Listener
 userLogin.addEventListener('submit', login);
 userRegister.addEventListener('submit', register);
+
+// Connect to mockAPI user -> Save in array
+// Sign up -> Check email availability
+// Sign in -> Compare with database -> Get user data (id, name, email, password, avatar) &
+// 			  connect to mockAPI movie to get user/id/movie data -> Save in local storage

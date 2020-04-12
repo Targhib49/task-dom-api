@@ -37,16 +37,23 @@ header {
 }
 
 main {
-	.myRow {
-		height: 87vh;
-	}
-
 	#main-container {
 		background-color: rgb(255, 255, 255);
 		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.24);
 
 		.card {
 			border: none;
+		}
+
+		.card-body {
+			padding: 0 !important;
+		}
+
+		#marked-favorite {
+			font-size: 60px;
+			color: pink;
+			margin: 0;
+			padding: 0;
 		}
 
 		#moviesInfo {
@@ -104,7 +111,6 @@ main {
 
 footer {
 	height: 35px;
-	background-color: rgb(84, 247, 84);
 	.row {
 		height: 100%;
 	}

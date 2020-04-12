@@ -33,17 +33,23 @@
             <div id="main-container" class="col-9 ml-3">
                 <div class="row justify-content-around mt-4">
                     <div class="col-3 card">
-                        <img class="card-img-top" src="./assets/images/no-image-available-png-3.png" alt="Poster">
+                        <img id="movie-poster" class="card-img-top" src="./assets/images/no-image-available-png-3.png"
+                            alt="Poster">
+                        <div class="row">
+                            <div class="col text-right">
+                                <p id="marked-favorite">&#x2665;</p>
+                            </div>
+                        </div>
                         <div class="card-body my-3 text-center">
                             <a href="moviesInfo.html">See movies details</a><br>
                             <a href="moviesRating.html">See this movies rating</a><br>
                             <a href="index.html">Back to Home</a>
                         </div>
                     </div>
-                    <div id="moviesInfo" class="col-8">
+                    <div id="moviesInfo" class="col-8 mb-4">
                         <div class="row">
                             <div class="col">
-                                <span class="h3">This is the movie title</span>
+                                <span id="movie-title" class="h3"></span>
                             </div>
                         </div>
                         <div class="row pt-5">
@@ -52,51 +58,60 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <div class="rate">
-                                    <input type="radio" id="star10" name="rate" value="10" />
-                                    <label for="star10" title="text">10 stars</label>
-                                    <input type="radio" id="star9" name="rate" value="9" />
-                                    <label for="star9" title="text">9 stars</label>
-                                    <input type="radio" id="star8" name="rate" value="6" />
-                                    <label for="star8" title="text">8 stars</label>
-                                    <input type="radio" id="star7" name="rate" value="6" />
-                                    <label for="star7" title="text">7 stars</label>
-                                    <input type="radio" id="star6" name="rate" value="6" />
-                                    <label for="star6" title="text">6 stars</label>
-                                    <input type="radio" id="star5" name="rate" value="5" />
-                                    <label for="star5" title="text">5 stars</label>
-                                    <input type="radio" id="star4" name="rate" value="4" />
-                                    <label for="star4" title="text">4 stars</label>
-                                    <input type="radio" id="star3" name="rate" value="3" />
-                                    <label for="star3" title="text">3 stars</label>
-                                    <input type="radio" id="star2" name="rate" value="2" />
-                                    <label for="star2" title="text">2 stars</label>
-                                    <input type="radio" id="star1" name="rate" value="1" />
-                                    <label for="star1" title="text">1 star</label>
-                                </div>
+                            <div class="col-7">
+                                <form id="rating-star" class="rate">
+                                    <input type="radio" id="star10" name="rate" value="10" disabled />
+                                    <label for="star10" title="text">1 stars</label>
+                                    <input type="radio" id="star9" name="rate" value="9" disabled />
+                                    <label for="star9" title="text">2 stars</label>
+                                    <input type="radio" id="star8" name="rate" value="8" disabled />
+                                    <label for="star8" title="text">3 stars</label>
+                                    <input type="radio" id="star7" name="rate" value="7" disabled />
+                                    <label for="star7" title="text">4 stars</label>
+                                    <input type="radio" id="star6" name="rate" value="6" disabled />
+                                    <label for="star6" title="text">5 stars</label>
+                                    <input type="radio" id="star5" name="rate" value="5" disabled />
+                                    <label for="star5" title="text">6 stars</label>
+                                    <input type="radio" id="star4" name="rate" value="4" disabled />
+                                    <label for="star4" title="text">7 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" disabled />
+                                    <label for="star3" title="text">8 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" disabled />
+                                    <label for="star2" title="text">9 stars</label>
+                                    <input type="radio" id="star1" name="rate" value="1" disabled />
+                                    <label for="star1" title="text">10 star</label>
+                                </form>
+                            </div>
+                            <div id="label-not" class="col-5 align-self-center">
                             </div>
                         </div>
                         <div class="row pt-5">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Give your best review :</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <label for="exampleFormControlTextarea1">Give your best review : (Max : 300
+                                        char)</label>
+                                    <textarea id="text-review" class="form-control" id="exampleFormControlTextarea1"
+                                        maxlength="300" rows="5" readonly></textarea>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="row">
+                            <div id="button-group" class="col text-right">
+                                <button id="edit-review" type="submit" class="btn btn-primary old-button">Edit
+                                    Review</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div id="profile-box" class="col-2 mt-3 mr-4">
                 <div class="card text-center">
                     <div class="card-body">
-                        <img src="./assets/images/pngwave.png"
-                            class="img-fluid rounded-circle w-75 mb-4 border border-dark" alt="Profile photo">
-                        <h5 class="card-title mb-5">User name</h5>
+                        <img id="profile-box-photo" src="" class="img-fluid rounded-circle w-75 mb-4 border border-dark"
+                            alt="Profile photo">
+                        <h5 id="profile-box-name" class="card-title mb-5">User name</h5>
                         <a href="userProfile.html">View Profile</a><br>
-                        <a href="welcome.html">Sign out</a>
+                        <a id="sign-out" href="">Sign out</a>
                     </div>
                 </div>
             </div>
@@ -120,7 +135,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-    <!-- <script src="assets/js/index.js"></script> -->
+    <script src="assets/js/userReview.js"></script>
 </body>
 
 </html>

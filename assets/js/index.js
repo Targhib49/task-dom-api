@@ -71,6 +71,7 @@ let moviesList = [
 ];
 let omdbData = [];
 let currentPage = 1;
+let mockMovies = [];
 
 // Element
 const signOut = document.getElementById('sign-out');
@@ -175,15 +176,18 @@ const getomdbData = async () => {
 };
 
 // Make current movie selection
-const currentMovie = (event) => {
+const currentMovie = async (event) => {
 	event.preventDefault();
 	let id;
+	let registeredMovie = false;
+	let urlMovie = `https://5e8ee187fe7f2a00165eead7.mockapi.io/users/${currentUser.id}/movies`;
+	let selectMovie = {};
+
 	if (event.target.matches('.myMovies')) {
 		id = event.target.id;
 	} else if (event.target.matches('.myMoviesText')) {
 		id = event.target.id.replace('text-', '');
 	}
-	let selectMovie = {};
 	for (let i = 0; i < omdbData.length; i++) {
 		if (omdbData[i].imdbId == id) {
 			selectMovie.id = id;
@@ -196,6 +200,36 @@ const currentMovie = (event) => {
 		}
 	}
 	localStorage.setItem('selectMovie', JSON.stringify(selectMovie));
+
+	for (let i = 0; i < currentUser.movieData.length; i++) {
+		if (currentUser.movieData[i].idIMDb == id) {
+			registeredMovie = true;
+		}
+	}
+
+	if (!registeredMovie) {
+		const temp = {
+			idIMDb: id,
+			title: selectMovie.title,
+			marked: false,
+			rating: 0,
+			review: ''
+		};
+
+		const response = await fetch(urlMovie, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(temp)
+		});
+		await response.json();
+
+		temp.id = 0;
+		currentUser.movieData.push(temp);
+	}
+
+	localStorage.setItem('userLogin', JSON.stringify(currentUser));
 	window.location.href = `${window.origin}/moviesInfo.html`;
 };
 
@@ -254,3 +288,11 @@ signOut.addEventListener('click', logout);
 paging.addEventListener('click', paginating);
 searchForm.addEventListener('keyup', searchMovies);
 moviesScreen.addEventListener('click', currentMovie);
+
+// 1. Check omdb Data available in local storage -> (Request from server -> Save to local storage) || get from local storage
+// 2. Get userLogin data and save it to a variable
+// 3. Display movie with data from number 1 and make a pagination
+// 4. Display user info with data from number 2 -> View profile button ready -> logout button ready
+// 5. Search movie function ready
+// 6. Get selected movie data (IMDb id, title, runtime, genre, plot, poster)
+// 7. Register the selected movie to user/id/movie mockAPI
