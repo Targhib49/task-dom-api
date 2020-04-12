@@ -57,10 +57,8 @@ const getMockMovies = async () => {
 			temp = mockMovies[i].id;
 		}
 	}
-	console.log(temp);
-	console.log(currentUser);
 
-	for (let i = 0; i < mockMovies.length; i++) {
+	for (let i = 0; i < currentUser.movieData.length; i++) {
 		if (currMovie.id == currentUser.movieData[i].idIMDb) {
 			currentUser.movieData[i].id = temp;
 		}
