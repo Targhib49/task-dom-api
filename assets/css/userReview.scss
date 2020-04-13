@@ -67,6 +67,22 @@ main {
 			padding: 0 10px;
 		}
 
+		.favorite {
+			float: left;
+			height: 46px;
+			padding: 0 10px;
+		}
+
+		.reset-button {
+			font-size: 12px;
+			background-color: DodgerBlue;
+			border: none;
+			color: white;
+			padding: 12px 16px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+
 		textarea {
 			resize: none;
 		}
@@ -107,6 +123,42 @@ main {
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
 	color: #c59b08;
+}
+
+.favorite:not(:checked) > input {
+	position: absolute;
+	top: -9999px;
+}
+
+.favorite:not(:checked) > label {
+	float: right;
+	width: 1em;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: pointer;
+	font-size: 30px;
+	color: #ccc;
+}
+
+.favorite:not(:checked) > label:before {
+	content: '\2665';
+}
+
+.favorite > input:checked ~ label {
+	color: #ff00d4;
+}
+
+.favorite:not(:checked) > label:hover,
+.favorite:not(:checked) > label:hover ~ label {
+	color: #ff26db;
+}
+
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+	color: #ff57e3;
 }
 
 footer {

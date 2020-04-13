@@ -86,7 +86,13 @@ const displayMoviesReview = () => {
 
 	if (!isReviewEmpty) {
 		let display = '';
-		for (let i = 0; i < 2; i++) {
+		let count;
+		if (movieReview.length > 4) {
+			count = 4;
+		} else {
+			count = movieReview.length;
+		}
+		for (let i = 0; i < count; i++) {
 			let id = Math.floor(Math.random() * movieReview.length);
 			display += `<div id="row-${i}" class="row pt-2 user-review pb-1"><div class="col-4"><span class="h6">${movieReview[
 				id
