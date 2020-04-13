@@ -16,6 +16,7 @@ let editReview = document.getElementById('edit-review');
 let labelNot = document.getElementById('label-not');
 let buttonGroup = document.getElementById('button-group');
 const signOut = document.getElementById('sign-out');
+let favoriteMark = document.getElementById('favorite-mark');
 
 // Get data from local storage
 let currentUser = JSON.parse(localStorage.userLogin);
@@ -121,6 +122,35 @@ const edit = async (event) => {
 	}
 };
 
+// Mark as favorite
+const favorite = async (event) => {
+	if (event.target.matches('.favorite')) {
+		let movieId;
+		let mark = favoriteMark[0].checked;
+		for (let i = 0; i < currentUser.movieData.length; i++) {
+			if (currentUser.movieData[i].idIMDb == currMovie.id) {
+				movieId = currentUser.movieData[i].id;
+				currentUser.movieData[i].marked = mark;
+			}
+		}
+
+		let urlMovie = `https://5e8ee187fe7f2a00165eead7.mockapi.io/users/${currentUser.id}/movies/${movieId}`;
+		const response = await fetch(urlMovie, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ marked: mark })
+		});
+
+		await response.json();
+
+		localStorage.setItem('userLogin', JSON.stringify(currentUser));
+	}
+};
+
+// Delete movie data
+
 // Display profile box
 const displayProfile = () => {
 	let profileBoxPhoto = document.getElementById('profile-box-photo');
@@ -146,6 +176,7 @@ displayPrev();
 // Listeners
 buttonGroup.addEventListener('click', edit);
 signOut.addEventListener('click', logout);
+favoriteMark.addEventListener('click', favorite);
 
 const notReady = document.getElementById('not-ready');
 
