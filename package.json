@@ -8,7 +8,7 @@
 		"git-scripts": "^0.4.3",
 		"surge": "^0.21.3"
 	},
-	"git": { "scripts": { "pre-push": "surge --project ./ --domain example-githooks.surge.sh" } },
+	"git": { "scripts": { "pre-push": "surge --project ./ --domain rymib20.surge.sh" } },
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
