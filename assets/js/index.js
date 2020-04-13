@@ -139,19 +139,12 @@ const getomdbData = async () => {
 		let pageNumber = Math.ceil(moviesList.length / 12);
 
 		for (let j = 0; j < pageNumber; j++) {
-			console.log(j);
-
 			let tempArr = [];
 			let start = 12 * j;
 			let end = start + 12;
-			console.log(start);
 
 			for (let i = start; i < end; i++) {
-				console.log('in');
-
 				if (typeof moviesList[i] != 'undefined') {
-					console.log('in2');
-
 					let moviesTitle = encodeURI(moviesList[i]);
 					const response = await fetch(`http://www.omdbapi.com/?apikey=7c646784&t=${moviesTitle}`);
 					const result = await response.json();

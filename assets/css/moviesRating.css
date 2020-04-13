@@ -36,10 +36,6 @@ header #my-title img {
   width: 50%;
 }
 
-main .myRow {
-  height: 87vh;
-}
-
 main #main-container {
   background-color: white;
   -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.24);
@@ -73,7 +69,6 @@ main #main-container .user-review {
 
 footer {
   height: 35px;
-  background-color: #54f754;
 }
 
 footer .row {

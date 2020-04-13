@@ -37,10 +37,6 @@ header {
 }
 
 main {
-	.myRow {
-		height: 87vh;
-	}
-
 	#main-container {
 		background-color: rgb(255, 255, 255);
 		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.24);
@@ -73,7 +69,6 @@ main {
 
 footer {
 	height: 35px;
-	background-color: rgb(84, 247, 84);
 	.row {
 		height: 100%;
 	}

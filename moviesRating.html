@@ -33,14 +33,15 @@
             <div id="main-container" class="col-9 ml-3">
                 <div class="row justify-content-around mt-4">
                     <div class="col-3 card">
-                        <img class="card-img-top" src="./assets/images/no-image-available-png-3.png" alt="Poster">
+                        <img id="movie-poster" class="card-img-top" src="./assets/images/no-image-available-png-3.png"
+                            alt="Poster">
                         <div class="card-body my-3 text-center">
                             <div class="row">
                                 <div class="col-8 text-left">
                                     <span class="critics">IMDb Rating:</span>
                                 </div>
                                 <div class="col-4 text-left">
-                                    <span class="critics-value">8.1/10</span>
+                                    <span id="imdb-rating" class="critics-value">8.1/10</span>
                                 </div>
                             </div>
                             <div class="row justify-content-start">
@@ -48,7 +49,7 @@
                                     <p class="critics">Rotten Tomatoes:</p>
                                 </div>
                                 <div class="col-4 text-left">
-                                    <span class="critics-value">96%</span>
+                                    <span id="rot-tomatoes" class="critics-value">96%</span>
                                 </div>
                             </div>
                             <div class="row justify-content-start pb-3">
@@ -56,7 +57,7 @@
                                     <p class="critics">Metascore:</p>
                                 </div>
                                 <div class="col-4 text-left">
-                                    <span class="critics-value">85/100</span>
+                                    <span id="meta-score" class="critics-value">85/100</span>
                                 </div>
                             </div>
                             <a href="moviesInfo.html">See movies details</a><br>
@@ -65,9 +66,9 @@
                         </div>
                     </div>
                     <div id="moviesInfo" class="col-8">
-                        <div class="row">
+                        <div class="row pt-2">
                             <div class="col">
-                                <span class="h3">This is the movie title</span>
+                                <span id="movie-title" class="h3"></span>
                             </div>
                         </div>
                         <div class="row pt-4">
@@ -111,11 +112,11 @@
             <div id="profile-box" class="col-2 mt-3 mr-4">
                 <div class="card text-center">
                     <div class="card-body">
-                        <img src="./assets/images/pngwave.png"
+                        <img src="./assets/images/pngwave.png" id="profile-box-photo"
                             class="img-fluid rounded-circle w-75 mb-4 border border-dark" alt="Profile photo">
-                        <h5 class="card-title mb-5">User name</h5>
+                        <h5 id="profile-box-name" class="card-title mb-5"></h5>
                         <a href="userProfile.html">View Profile</a><br>
-                        <a href="welcome.html">Sign out</a>
+                        <a id="sign-out" href="welcome.html">Sign out</a>
                     </div>
                 </div>
             </div>
@@ -139,7 +140,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-    <!-- <script src="assets/js/index.js"></script> -->
+    <script src="assets/js/moviesRating.js"></script>
 </body>
 
 </html>
