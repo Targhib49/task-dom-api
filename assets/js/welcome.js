@@ -16,11 +16,16 @@ signInButton.addEventListener('click', () => {
 // Global variable and constant
 let userData = [];
 let movieData = [];
+let userName = [];
+let allMovieData = [];
+let countUsers = 0;
 const urlUser = 'https://5e8ee187fe7f2a00165eead7.mockapi.io/users';
 
 // Element
 const userLogin = document.getElementById('user-login');
 const userRegister = document.getElementById('user-register');
+const signIn = document.getElementById('sign-in');
+const signUp = document.getElementById('sign-up');
 
 // Connect to mockAPI - user
 const getUserData = async () => {
@@ -29,7 +34,16 @@ const getUserData = async () => {
 
 	result.forEach((user) => {
 		userData.push(user);
+		let temp = {
+			id: user.id,
+			name: user.name
+		};
+		userName.push(temp);
 	});
+
+	countUsers = userData.length;
+	localStorage.setItem('userName', JSON.stringify(userName));
+	await getAllMovieData();
 };
 
 // Connect to mockAPI - movie
@@ -42,6 +56,25 @@ const getMovieData = async (id) => {
 	result.forEach((movie) => {
 		movieData.push(movie);
 	});
+};
+
+// Get all movie data from mockAPI
+const getAllMovieData = async () => {
+	for (let i = 1; i < countUsers + 1; i++) {
+		let urlMovie = `https://5e8ee187fe7f2a00165eead7.mockapi.io/users/${i}/movies`;
+		const response = await fetch(urlMovie);
+		const result = await response.json();
+
+		result.forEach((movie) => {
+			allMovieData.push(movie);
+		});
+	}
+	localStorage.setItem('allMovieData', JSON.stringify(allMovieData));
+
+	if (allMovieData.length != 0) {
+		signIn.removeAttribute('disabled');
+		signUp.removeAttribute('disabled');
+	}
 };
 
 // Sign in
@@ -135,3 +168,9 @@ userRegister.addEventListener('submit', register);
 // Sign up -> Check email availability
 // Sign in -> Compare with database -> Get user data (id, name, email, password, avatar) &
 // 			  connect to mockAPI movie to get user/id/movie data -> Save in local storage
+
+//==================================================================
+if (allMovieData.length == 0) {
+	signIn.setAttribute('disabled', '');
+	signUp.setAttribute('disabled', '');
+}

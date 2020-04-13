@@ -1,0 +1,43 @@
+(Notes ini dibuat untuk mempermudah membaca codingan, khususnya nanti2 kalo lupa ni project buat apaan)
+
+Fitur yang ada di project ini : 
+Liat di readme.md di github ya
+
+Sumber data : OMDB API(Data movie), mockAPI(Data user dan user movie)
+Penyimpanan sementara : local storage
+
+mockAPI user and movie connection: nested (user/:id/movies/:id)
+
+Fitur per halaman : 
+
+A. Welcome.html
+user: 
+- Sign up : user masukin nama, email, password, terus klik tombol sign up
+- Sign in : user masukin email, password, terus klik tombol sign in
+
+- CSS Trick : pertama user akan diperlihatkan menu login, kalo belum punya akun, klik tombol sign up dan layar akan bergerak kaya buku buat pindah ke menu sign up
+caranya: 
+- googling florin pop sliding sign in sign up, ikutin tutorialnya disitu, tapi intinya layering (positioning) terus kasih animation sederhana
+
+system: (ga tau nama benernya apa cuman kedepannya bakal disebut ini)
+1. ketika halaman dibuka pertama kali, ambil data semua user dari mockAPI (GET) simpen aja di variable
+- kalau user langsung login, data itu buat ngecek email sama password yang dimasukin bener apa engga
+- kalau user sign up, data itu buat ngecek email yang dimasukin udah pernah diregistrasiin belum
+- kalau data user udah bener, klik sign up, langsung kirim (POST) data ke mockAPI
+
+2. dari data yang diambil di nomor satu, ambil data tentang siapa user yang login, semuanya ya
+3. ambil lagi data dari mockAPI tapi dari user/:id/movies
+
+- data nomor 2 sama 3 dimasukin ke local storage dengan satu key
+
+B. Index.html
+user: 
+- Display movie : user bakal ngeliat poster-poster movie
+- Display profile-box : user bakal ngeliat foto dia sama namanya, dibawahnya ada view profile sama sign out
+- Search : user bisa search movie kesayangannya
+
+system: 
+- Connect to omdb API, simpen di local storage biar ga usah request lagi dengan satu key
+- 
+
+

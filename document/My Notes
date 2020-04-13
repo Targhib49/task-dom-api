@@ -1,0 +1,32 @@
+Catatan mini project "DOM PROJECT - Rate Your Movie by Impact Byte 2020 (RYMIB20.surge.sh)
+
+Catatan umum : 
+1. Kalau dapet project, jangan langsung coding!(Kecuali kalo udah kerja bertahun-tahun sampe apal di luar kepala), Plan dulu mau ada fitur apa aja, desainnya kaya gimana, keliatannya buang2 waktu di awal, tapi kalo dilakukan dengan baik dan benar bisa mengurangi cost dengan signifikan. (Inget kata2 kahim di awal kepengurusan, "Kita harus buat grand design himpunan kita, mau dibawa kemana himpunan kita tahun ini?", serius ternyata kepake disini)
+
+Apa aja yg harus diplan?
+
+2. Plan data flow
+
+- Tentukan sumber data apa saja yang akan digunakan, misalnya API dari omdb, mockAPI, atau 	yang lainnya.
+
+- Tentukan kapan saja kita akan mengambil data dari sumber tesebut, apakah saat di login 	screen, home, atau di halaman lainnya.
+
+- Tentukan tempat penyimpanan data sementara apa saja yang akan digunakan, misalnya Local storage, session storage atau yang lainnya. (Inget! Data ga bisa loncat dari satu halaman ke halaman lainnya gitu aja, harus ada wadah buat bawa data tersebut)
+
+- Tentukan kapan kita menyimpan data ke tempat tersebut dan kapan kita harus mengambilnya lagi
+
+- Konsisten dengan nama variable dan konstanta yang digunakan biar ga bingung
+
+- Bayangkan menjadi variable (Serius loh!) Kapan si variable dibuat, terus si variable ini dimasukin data apa aja, dimasukkin ke fungsi apa aja, apa statusnya, global variable yang bisa masuk ke semua fungsi atau local variable yang cuman bisa dipake dilingkup tertentu aja, kan ga lucu kalo si variable diminta data yang dia belum terima, apalagi manggil variable yang belum lahir...
+
+- Make it your story!, setiap cerita punya alur, sambung menyambung menjadi satu (Indonesia?), data juga sama, alurnya harus lancar ga boleh putus, kalo program ga jalan, kemungkinan besar ada jalanan data yang putus. Kalo ini terjadi, berhenti dulu, tarik napas, susurin satu-satu alur variablenya, liat kalo ada typo, bates loop yang salah, urutan pemanggilan, assignment, atau kalo pake asynchronous, cek aja dah setiap async function udah dikasih async di depannya plus await belum?
+
+3. Plan mau ada fitur apa aja
+
+- Apa aja yg dibutuhin, mau se advance apa, fitur apa aja yang harus sehalaman, bisa dijadiin sehalaman, atau ga bisa dijadiin sehalaman. Inget! fitur juga ga suka kalo dipaksa-paksa gitu
+
+- Hampir semua fitur udah dibuat sama orang lain di dunia ini, kita ga harus rajin baca setiap hari (yah, bagus sih, serius kalo bisa lakukan ini setiap hari bagus banget, tapi kalo ga bisa), kita harus pinter-pinter buat nge googling, semua jawaban udah tersedia, tapi kadang kita aja yang ga mau ngeliat dia (ciyee), jangan takut salah, jangan takut komputer rusak (kalo rusak beli lagi, tapi ya pinter-pinter dikit lah jangan ngerusak juga, belum punya duit sendiri)
+
+- Jangan cuman copas solusi orang, tulis ulang! (hmm.. ketik ulang sih). Pahami maksud per line, kalo bisa make it your own dengan nambahin style sendiri
+
+4. Yang paling penting pas planning, jangan lama-lama, kapan kerjanya??? planning harus efisien, efektif, lugas, tapi menyeluruh. Cycle project setelah ini tergantung style masing-masing, tapi buat plan yg udah dibikin jadi guide line project yang akan dikerjakan, mau itu project kecil atau besar.

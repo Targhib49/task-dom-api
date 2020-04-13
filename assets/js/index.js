@@ -270,6 +270,9 @@ const logout = (event) => {
 	event.preventDefault();
 	localStorage.setItem('isLoginRYMIB', false);
 	localStorage.removeItem('userLogin');
+	localStorage.removeItem('selectMovie');
+	localStorage.removeItem('userName');
+	localStorage.removeItem('allMovieData');
 	window.location.href = `${window.origin}/welcome.html`;
 };
 

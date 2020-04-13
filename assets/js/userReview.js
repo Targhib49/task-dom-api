@@ -194,6 +194,9 @@ const logout = (event) => {
 	event.preventDefault();
 	localStorage.setItem('isLoginRYMIB', false);
 	localStorage.removeItem('userLogin');
+	localStorage.removeItem('selectMovie');
+	localStorage.removeItem('userName');
+	localStorage.removeItem('allMovieData');
 	window.location.href = `${window.origin}/welcome.html`;
 };
 
@@ -207,11 +210,3 @@ buttonGroup.addEventListener('click', edit);
 signOut.addEventListener('click', logout);
 favoriteMark.addEventListener('click', favorite);
 submitTrash.addEventListener('click', trash);
-
-const notReady = document.getElementById('not-ready');
-
-const alertNot = (event) => {
-	alert('Page not ready yet');
-};
-
-notReady.addEventListener('click', alertNot);
