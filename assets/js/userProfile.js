@@ -51,14 +51,23 @@ const displayFavoriteMovies = () => {
 			markedMovie.push(tempObj);
 		}
 	}
+	console.log(markedMovie);
 
 	if (!isMarkedEmpty) {
-		let display;
-		for (let i = 0; i < 3; i++) {
+		let display = '';
+		let count;
+		let idDone = [];
+		if (markedMovie > 4) {
+			count = 4;
+		} else {
+			count = markedMovie.length;
+		}
+		for (let i = 0; i < count; i++) {
 			let id = Math.floor(Math.random() * markedMovie.length);
 			display += `<div id="movie-${i}" class="col-3 card"><img src="${markedMovie[id]
 				.poster}" class="img-fluid" alt="poster">
-            <p class="card-text text-center pt-1">${markedMovie[id].title}</p></div>`;
+			<p class="card-text text-center pt-1">${markedMovie[id].title}</p></div>`;
+			markedMovie.splice(id, 1);
 		}
 		profileFavoriteBox.innerHTML = display;
 	} else {
@@ -74,7 +83,7 @@ const displayMoviesReview = () => {
 	let isReviewEmpty = true;
 	let movieReview = [];
 	for (let i = 0; i < currentUser.movieData.length; i++) {
-		if (currentUser.movieData[i].review != null) {
+		if (currentUser.movieData[i].review != '') {
 			isReviewEmpty = false;
 			let tempObj = {
 				title: currentUser.movieData[i].title,
@@ -94,9 +103,16 @@ const displayMoviesReview = () => {
 		}
 		for (let i = 0; i < count; i++) {
 			let id = Math.floor(Math.random() * movieReview.length);
-			display += `<div id="row-${i}" class="row pt-2 user-review pb-1"><div class="col-4"><span class="h6">${movieReview[
-				id
-			].title}</span></div><div class="col-8"><span class="h6">${movieReview[id].review}</span></div>`;
+			display += `<div id="row-${i}" class="row pt-2 user-review pb-1">
+							<div class="col-4">
+								<span class="h6">${movieReview[id].title}</span>
+							</div>
+						
+							<div class="col-8">
+								<span class="h6">${movieReview[id].review}</span>
+							</div>
+						</div>`;
+			movieReview.splice(id, 1);
 		}
 		profileReviewBox.innerHTML = display;
 	} else {

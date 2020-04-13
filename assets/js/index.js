@@ -213,7 +213,8 @@ const currentMovie = async (event) => {
 			title: selectMovie.title,
 			marked: false,
 			rating: 0,
-			review: ''
+			review: '',
+			poster: selectMovie.poster
 		};
 
 		const response = await fetch(urlMovie, {
@@ -291,8 +292,9 @@ moviesScreen.addEventListener('click', currentMovie);
 
 // 1. Check omdb Data available in local storage -> (Request from server -> Save to local storage) || get from local storage
 // 2. Get userLogin data and save it to a variable
-// 3. Display movie with data from number 1 and make a pagination
-// 4. Display user info with data from number 2 -> View profile button ready -> logout button ready
-// 5. Search movie function ready
-// 6. Get selected movie data (IMDb id, title, runtime, genre, plot, poster)
-// 7. Register the selected movie to user/id/movie mockAPI
+// 3. Get movies data from user and update it to userLogin data
+// 4. Display movie with data from number 1 and make a pagination
+// 5. Display user info with data from number 2 -> View profile button ready -> logout button ready
+// 6. Search movie function ready
+// 7. Get selected movie data (IMDb id, title, runtime, genre, plot, poster)
+// 8. Register the selected movie to user/id/movie mockAPI

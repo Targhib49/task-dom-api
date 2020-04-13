@@ -15,8 +15,9 @@ let ratingStar = document.getElementById('rating-star');
 let editReview = document.getElementById('edit-review');
 let labelNot = document.getElementById('label-not');
 let buttonGroup = document.getElementById('button-group');
-const signOut = document.getElementById('sign-out');
 let favoriteMark = document.getElementById('favorite-mark');
+let submitTrash = document.getElementById('submit-trash');
+const signOut = document.getElementById('sign-out');
 
 // Get data from local storage
 let currentUser = JSON.parse(localStorage.userLogin);
@@ -32,11 +33,13 @@ const displayMovieInfo = () => {
 const displayPrev = () => {
 	let userRating;
 	let userReview;
+	let userMarked;
 
 	for (let i = 0; i < currentUser.movieData.length; i++) {
 		if (currentUser.movieData[i].idIMDb == currMovie.id) {
 			userRating = currentUser.movieData[i].rating;
 			userReview = currentUser.movieData[i].review;
+			userMarked = currentUser.movieData[i].marked;
 		}
 	}
 
@@ -55,6 +58,8 @@ const displayPrev = () => {
 	} else {
 		textReview.setAttribute('placeholder', "You haven't review this movie yet");
 	}
+
+	favoriteMark[0].checked = userMarked;
 };
 
 // Edit rating and review
@@ -150,6 +155,30 @@ const favorite = async (event) => {
 };
 
 // Delete movie data
+const trash = async (event) => {
+	event.preventDefault();
+
+	let movieId;
+	for (let i = 0; i < currentUser.movieData.length; i++) {
+		if (currentUser.movieData[i].idIMDb == currMovie.id) {
+			movieId = currentUser.movieData[i].id;
+		}
+	}
+	let urlMovie = `https://5e8ee187fe7f2a00165eead7.mockapi.io/users/${currentUser.id}/movies/${movieId}`;
+	const response = await fetch(urlMovie, {
+		method: 'DELETE'
+	});
+	await response.json();
+
+	for (let i = 0; i < currentUser.movieData.length; i++) {
+		if (currentUser.movieData[i].idIMDb == currMovie.id) {
+			currentUser.movieData.splice(i, 1);
+		}
+	}
+	localStorage.setItem('userLogin', JSON.stringify(currentUser));
+
+	location.href = `${window.origin}/index.html`;
+};
 
 // Display profile box
 const displayProfile = () => {
@@ -177,6 +206,7 @@ displayPrev();
 buttonGroup.addEventListener('click', edit);
 signOut.addEventListener('click', logout);
 favoriteMark.addEventListener('click', favorite);
+submitTrash.addEventListener('click', trash);
 
 const notReady = document.getElementById('not-ready');
 

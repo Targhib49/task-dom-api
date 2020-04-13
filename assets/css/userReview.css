@@ -154,11 +154,11 @@ main #main-container textarea {
   color: #ff26db;
 }
 
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
+.favorite > input:checked + label:hover,
+.favorite > input:checked + label:hover ~ label,
+.favorite > input:checked ~ label:hover,
+.favorite > input:checked ~ label:hover ~ label,
+.favorite > label:hover ~ input:checked ~ label {
   color: #ff57e3;
 }
 

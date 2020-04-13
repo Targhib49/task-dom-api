@@ -37,7 +37,8 @@
                             alt="Poster">
                         <div class="row justify-content-around mt-2">
                             <div class="col-3 text-center">
-                                <button class="btn reset-button"><i class="fa fa-trash"></i></button>
+                                <button id="trash-button" class="btn reset-button" data-toggle="modal"
+                                    data-target="#trash-modal"><i class="fa fa-trash"></i></button>
                             </div>
                             <div class="col-3 text-right">
                                 <form id="favorite-mark" class="favorite">
@@ -131,6 +132,25 @@
             <div class="col text-center">Copyright &copy; by Impactbyte #13 Master Mizuchi</div>
         </div>
     </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="trash-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                </div>
+                <div class="modal-body">
+                    Do you really want to delete your movie data?<br>
+                    This include your favorite mark, review, and rating for this movie
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button id="submit-trash" type="button" class="btn btn-primary">Sure</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Script -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

@@ -45,7 +45,7 @@ const getMovieData = async (id) => {
 };
 
 // Sign in
-const login = (event) => {
+const login = async (event) => {
 	event.preventDefault();
 	let loginSuccess = false;
 
@@ -58,7 +58,7 @@ const login = (event) => {
 				let id = userData[i].id;
 				let name = userData[i].name;
 				let avatar = userData[i].avatar;
-				getMovieData(id);
+				await getMovieData(id);
 
 				let userLogin = {
 					id,
@@ -69,6 +69,7 @@ const login = (event) => {
 					movieData
 				};
 
+				console.log(userLogin.userMovie);
 				localStorage.setItem('isLoginRYMIB', true);
 				localStorage.setItem('userLogin', JSON.stringify(userLogin));
 				loginSuccess = true;
