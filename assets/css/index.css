@@ -66,6 +66,7 @@ main #main-container p {
 
 footer {
   height: 35px;
+  background-color: green;
 }
 
 footer .row {
